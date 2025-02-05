@@ -202,6 +202,8 @@ validate_wildcard_identifier(Identifier, Hostname, WildcardPos) ->
   end.
 
 try_match_hostname(Identifier0, Hostname0) ->
+  erlang:display(Identifier0)
+  erlang:display(Hostname0)
   Identifier = ssl_verify_string:strip(Identifier0, right, $.), %% what about *.com.??
   Hostname = ssl_verify_string:strip(Hostname0, right, $.),
   case case_insensitive_match(Identifier, Hostname) of
